@@ -12,27 +12,13 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6
 
-    - name: Cache Python packages
-      uses: actions/cache@a7833574556fa59680c1b7cb190c1735db73ebf0  # v5
-      env:
-        # Increase this value to reset cache if environment file has not changed
-        CACHE_NUMBER: 1
-      with:
-        path: |
-          ~/conda_pkgs_dir
-          ~/.cache/pip
-        key:
-          ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-          hashFiles('environment_unversioned.yml') }}
-
     - name: Activate Anaconda Environment
       uses: conda-incubator/setup-miniconda@8ee1f361103df19b6f8c8655fd3967a8ecb162d5  # v4.0.1
       with:
         miniforge-version: latest
         environment-file: environment_unversioned.yml
-        activate-environment: fdc
+        activate-environment: ptest
         auto-activate-base: false
-        use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
       env:
         CONDA_OVERRIDE_ARCHSPEC: x86_64_v4
 
