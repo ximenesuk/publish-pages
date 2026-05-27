@@ -1,0 +1,9 @@
+# Environment file with the packages that we require.
+name: ptest
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+
+  - sphinx
+  - myst-parser

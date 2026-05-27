@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 120
+# This refers to a rule that there can only be 1 line of spacing between class methods
+ignore = E303
